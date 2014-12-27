@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('App', ['App.controllers', 'App.filters', 'App.services', 'ui.router'])
+var app = angular.module('App', ['App.controllers', 'App.filters', 'App.services', 'ui.router']);
 
-.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 

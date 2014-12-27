@@ -8,17 +8,21 @@ var gulp = require('gulp')
   , rename = require('gulp-rename')
   , notify = require('gulp-notify')
   , gulpif = require('gulp-if')
-  , args = require('yargs').argv;
+  , args = require('yargs').argv
+  , ngAnnotate = require('gulp-ng-annotate');
+
+
+//TODO - Concat and minify any CSS
+//TODO - Add LESS to project and include a Gulp task
+//TODO - Watch task needs to do more, its not working properly with the concat/minify tasks
+
 
 var isProd = args.prod;
 var injectString = (isProd) ? './public/dist/scripts.min.js' : './public/dist/**/*.js';
-console.log(isProd);
-console.log(injectString);
 
-//usage from the CMD line = 'gulp build --prod'
+//usage from terminal = 'gulp --prod'
 
 gulp.task('default', ['inject'], function() {
-  // place code for your default task here
   gulp.start('serve');
 });
 
@@ -30,6 +34,11 @@ gulp.task('inject', ['build'],  function() {
 
 gulp.task('build', ['clean'], function() {
   return gulp.src('public/scripts/*.js')
+    .pipe(ngAnnotate({
+      remove: true,
+      add: true,
+      single_quotes: true
+    }))
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('./public/dist'))
     .pipe(gulpif(isProd, rename({suffix: '.min'})))
@@ -46,6 +55,7 @@ gulp.task('clean', function () {
 // watch files for changes and reload
 gulp.task('serve', function() {
     browserSync({
+      open: false,
       server: {
         baseDir: 'public'
       }
