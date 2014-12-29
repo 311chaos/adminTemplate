@@ -1,82 +1,70 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
 
-    <title>TEST</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <title>TEST</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
 
-    <!-- inject:css -->
-    <!-- endinject -->
+    <body ng-app="App" ng-strict-di>
 
-
-</head>
-
-<body ng-app="App" ng-strict-di>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a><i class="fa fa-search"></i></a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
-        </div>
-    </div>
-</nav>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="notHome1">Not Home 1</a></li>
-                <li><a ui-sref="notHome2">Not Home 2</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div class="ui-view-container">
-            <div class="well" ui-view></div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a><i class="fa fa-search"></i></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </form>
+                </div>
             </div>
+        </nav>
 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="notHome1">Not Home 1</a></li>
+                        <li><a ui-sref="notHome2">Not Home 2</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div class="ui-view-container">
+                    <div class="well" ui-view></div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+        <!-- bower:js -->
+        <script src="/dist/bower/bowerScripts.2014_12_29__02_02_40_pm.min.js"></script>
+        <!-- endinject -->
 
 
+        <!-- inject:js -->
+        <script src="dist/scripts2014_12_29__02_02_40_pm.min.js"></script>
+        <!-- endinject -->
 
-<script src='lib/angular/angular.min.js'></script>
-<script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
-<script src='lib/angular-animate/angular-animate.min.js'></script>
-<script src='lib/jquery/dist/jquery.min.js'></script>
-<script src='lib/bootstrap/dist/js/bootstrap.min.js'></script>
-
-
-<!-- inject:js -->
-<script src="dist/scripts.js"></script>
-<!-- endinject -->
-
-
-</body>
-
-
-
-
+    </body>
 </html>
