@@ -12,14 +12,15 @@ var gulp = require('gulp')
   , ngAnnotate = require('gulp-ng-annotate')
   , moment = require('moment')
   , bowerFiles = require('main-bower-files')
-  , filter = require('gulp-filter');
+  , filter = require('gulp-filter')
+  ,angularFilesort = require('gulp-angular-filesort');
 
 
 
 process.env.NODE_ENV = (args.prod) ? 'prod':'dev';
 var isProd = args.prod || false;
 var injectString = (isProd) ? './public/dist/*.min.js' : './public/dist/**/*.js';
-console.log(process.env.NODE_ENV );
+console.log(process.env.NODE_ENV);
 
 var timestamp = moment().format('YYYY_MM_D__hh_mm_ss_a');
 var bowerFilters = {
@@ -42,7 +43,7 @@ gulp.task('default', ['inject'], function() {
 gulp.task('inject', ['buildBower'],  function() {
   return gulp.src('public/index.html')
     .pipe(inject(gulp.src('./public/dist/*.js', {read: false}), {relative: true}))
-    .pipe(inject(gulp.src('./public/dist/bower/*.js', {read: false}), {name: 'bower', ignorePath: 'public'}))
+    .pipe(inject(gulp.src(['./public/dist/bower/*.js', '!./public/dist/bower/bootstrap.js', '!./public/dist/bower/jquery.js'], {read: false}).pipe(angularFilesort()), {name: 'bower', ignorePath: 'public'}))
     .pipe(gulp.dest('./public'));
 });
 
