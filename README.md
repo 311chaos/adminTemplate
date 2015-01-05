@@ -2,6 +2,8 @@ Twitter Bootstrap Template
 =============
 
 GULP Commands:
+--------------
+![Gulp](gulp.png)
 
 * **gulp** - Will run the default tasks, which are: clean, build, buildBower, inject, and serve.
 * **clean** - Will clean the public/dist directory.
